@@ -1,0 +1,48 @@
+
+@authHeader = authtoken
+@tokenUser = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImViaWViaUBlbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwOTQ5MzY4NywiZXhwIjoxNjA5NTgwMDg3fQ.ISh2x0bS9GJe-S4e0_hDCYZUquRHqXqFph08e-2eC0I
+@tokenAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwOTczNjU1NX0.KRy1h4-KhbmXXq02BM-8c9WP7IuyL5LVU5W24u28oE4
+
+
+### commit users
+GET http://localhost:9000/users/commit/
+{{authHeader}}:{{tokenAdmin}}
+
+### drop users
+GET http://localhost:9000/users/drop/
+{{authHeader}}:{{tokenAdmin}}
+
+### get users
+GET http://localhost:9000/users
+# {{authHeader}}:{{tokenUser}}
+{{authHeader}}:{{tokenAdmin}}
+
+
+### get users by email
+GET http://localhost:9000/users/ebiebi@email.com
+{{authHeader}}:{{tokenUser}}
+
+### get paginate
+GET http://localhost:9000/users/q?page=3&limit=3
+{{authHeader}}:{{tokenAdmin}}
+
+### add users
+POST http://localhost:9000/users HTTP/1.1
+content-type: application/json
+
+{
+    "role": "admin",
+    "name": "ebi",
+    "username": "ebi",
+    "email": "ebi@email.com",
+    "password": "abcd1234"
+}
+
+### login
+POST http://localhost:9000/auth HTTP/1.1
+content-type: application/json
+
+{
+    "email": "ebi@email.com",
+    "password": "abcd1234"
+}

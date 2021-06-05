@@ -1,0 +1,16 @@
+
+@authHeader = authtoken
+@tokenUser = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImViaWViaUBlbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTYwOTQ5MzY4NywiZXhwIjoxNjA5NTgwMDg3fQ.ISh2x0bS9GJe-S4e0_hDCYZUquRHqXqFph08e-2eC0I
+@tokenAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwOTczNjU1NX0.KRy1h4-KhbmXXq02BM-8c9WP7IuyL5LVU5W24u28oE4
+
+### commit users
+GET http://localhost:9000/manga/commit/
+{{authHeader}}:{{tokenAdmin}}
+
+### drop users
+GET http://localhost:9000/manga/drop/
+{{authHeader}}:{{tokenAdmin}}
+
+### get Manga
+GET http://localhost:9000/manga/
+{{authHeader}}:{{tokenAdmin}}
